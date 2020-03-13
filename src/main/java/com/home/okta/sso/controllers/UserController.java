@@ -19,16 +19,34 @@ public class UserController {
   @Autowired
   private IUserService userService;
 
+  /**
+   * This method fetches parent object - which means it fetches whole okta profile with different children profiles. (Including user information)
+   *
+   * @param principal
+   * @return
+   */
   @RequestMapping(value = "/", method = RequestMethod.GET)
   public Principal getPrincipal(Principal principal) {
     return principal;
   }
 
+  /**
+   * This method fetches one child profile (called principal) out of parent profile. - This will have user information.
+   *
+   * @param authentication
+   * @return
+   */
   @RequestMapping(value = "/principal", method = RequestMethod.GET)
   public Object getAuthentication(Authentication authentication) {
     return authentication.getPrincipal();
   }
 
+  /**
+   * This method is responsible to fetch required attributes from user profile and return it.
+   *
+   * @return
+   * @throws IOException
+   */
   @RequestMapping(value = "/user", method = RequestMethod.GET)
   public User getUser() throws IOException {
     return userService.getUser();

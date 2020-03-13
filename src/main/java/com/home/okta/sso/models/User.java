@@ -1,5 +1,8 @@
 package com.home.okta.sso.models;
 
+/**
+ * Custom user model, returned to consumer of this service.
+ */
 public class User {
   private String email;
   private String fullName;
