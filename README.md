@@ -29,6 +29,6 @@ This is a special scenario, cause `okta SDK` will not provide any functionality 
 Ideally, just hitting `/logout` end point will logout the session by spring security (but okta session is still mantained).
 
 But I faced issue here, `spring-security` displays successful logout page, but actually it doesn't logout and still maintains session.
-This can be tested by removing `okta.oauth2.postLogoutRedirectUri=http://localhost:8080/login/oauth2/code/okta` property from application config,
+This can be tested by removing `okta.oauth2.post-logout-redirect-uri=http://localhost:8080/` property from application config,
 and hitting `/logout` end point.
 
